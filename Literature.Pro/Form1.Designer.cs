@@ -48,21 +48,24 @@
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.librarydbDataSet = new Literature.Pro.LibrarydbDataSet();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.booksTableAdapter = new Literature.Pro.LibrarydbDataSetTableAdapters.booksTableAdapter();
-            this.idbookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namebookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.editionyearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idPublishingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pBHouseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pBHouseTableAdapter = new Literature.Pro.LibrarydbDataSetTableAdapters.PBHouseTableAdapter();
+            this.EditionsbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.editionsTableAdapter = new Literature.Pro.LibrarydbDataSetTableAdapters.EditionsTableAdapter();
+            this.ReadersbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.readersTableAdapter = new Literature.Pro.LibrarydbDataSetTableAdapters.ReadersTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.librarydbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBHouseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditionsbindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReadersbindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -97,6 +100,7 @@
             this.bookAuthorsToolStripMenuItem1.Name = "bookAuthorsToolStripMenuItem1";
             this.bookAuthorsToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
             this.bookAuthorsToolStripMenuItem1.Text = "Книги";
+            this.bookAuthorsToolStripMenuItem1.Click += new System.EventHandler(this.bookAuthorsToolStripMenuItem1_Click);
             // 
             // видавництваToolStripMenuItem
             // 
@@ -104,6 +108,7 @@
             this.видавництваToolStripMenuItem.Name = "видавництваToolStripMenuItem";
             this.видавництваToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.видавництваToolStripMenuItem.Text = "Видавництва ";
+            this.видавництваToolStripMenuItem.Click += new System.EventHandler(this.видавництваToolStripMenuItem_Click);
             // 
             // видачаToolStripMenuItem
             // 
@@ -111,6 +116,7 @@
             this.видачаToolStripMenuItem.Name = "видачаToolStripMenuItem";
             this.видачаToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.видачаToolStripMenuItem.Text = "Видачі";
+            this.видачаToolStripMenuItem.Click += new System.EventHandler(this.видачаToolStripMenuItem_Click);
             // 
             // читачToolStripMenuItem
             // 
@@ -118,6 +124,7 @@
             this.читачToolStripMenuItem.Name = "читачToolStripMenuItem";
             this.читачToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.читачToolStripMenuItem.Text = "Читачі";
+            this.читачToolStripMenuItem.Click += new System.EventHandler(this.читачToolStripMenuItem_Click);
             // 
             // historyToolStripMenuItem
             // 
@@ -201,25 +208,6 @@
             this.librarydbDataSet.DataSetName = "LibrarydbDataSet";
             this.librarydbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idbookDataGridViewTextBoxColumn,
-            this.namebookDataGridViewTextBoxColumn,
-            this.autorDataGridViewTextBoxColumn,
-            this.editionyearDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.countDataGridViewTextBoxColumn,
-            this.idPublishingDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.booksBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(958, 272);
-            this.dataGridView1.TabIndex = 5;
-            // 
             // booksBindingSource
             // 
             this.booksBindingSource.DataMember = "books";
@@ -229,47 +217,49 @@
             // 
             this.booksTableAdapter.ClearBeforeFill = true;
             // 
-            // idbookDataGridViewTextBoxColumn
+            // label1
             // 
-            this.idbookDataGridViewTextBoxColumn.DataPropertyName = "idbook";
-            this.idbookDataGridViewTextBoxColumn.HeaderText = "idbook";
-            this.idbookDataGridViewTextBoxColumn.Name = "idbookDataGridViewTextBoxColumn";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(87, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.TabIndex = 5;
             // 
-            // namebookDataGridViewTextBoxColumn
+            // dataGridView1
             // 
-            this.namebookDataGridViewTextBoxColumn.DataPropertyName = "Name_book";
-            this.namebookDataGridViewTextBoxColumn.HeaderText = "Name_book";
-            this.namebookDataGridViewTextBoxColumn.Name = "namebookDataGridViewTextBoxColumn";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(23, 119);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(947, 276);
+            this.dataGridView1.TabIndex = 6;
             // 
-            // autorDataGridViewTextBoxColumn
+            // pBHouseBindingSource
             // 
-            this.autorDataGridViewTextBoxColumn.DataPropertyName = "Autor";
-            this.autorDataGridViewTextBoxColumn.HeaderText = "Autor";
-            this.autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
+            this.pBHouseBindingSource.DataMember = "PBHouse";
+            this.pBHouseBindingSource.DataSource = this.bindingSource1;
             // 
-            // editionyearDataGridViewTextBoxColumn
+            // pBHouseTableAdapter
             // 
-            this.editionyearDataGridViewTextBoxColumn.DataPropertyName = "Edition_year";
-            this.editionyearDataGridViewTextBoxColumn.HeaderText = "Edition_year";
-            this.editionyearDataGridViewTextBoxColumn.Name = "editionyearDataGridViewTextBoxColumn";
+            this.pBHouseTableAdapter.ClearBeforeFill = true;
             // 
-            // priceDataGridViewTextBoxColumn
+            // EditionsbindingSource
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.EditionsbindingSource.DataMember = "Editions";
+            this.EditionsbindingSource.DataSource = this.bindingSource1;
             // 
-            // countDataGridViewTextBoxColumn
+            // editionsTableAdapter
             // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "Count";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.editionsTableAdapter.ClearBeforeFill = true;
             // 
-            // idPublishingDataGridViewTextBoxColumn
+            // ReadersbindingSource
             // 
-            this.idPublishingDataGridViewTextBoxColumn.DataPropertyName = "IdPublishing";
-            this.idPublishingDataGridViewTextBoxColumn.HeaderText = "IdPublishing";
-            this.idPublishingDataGridViewTextBoxColumn.Name = "idPublishingDataGridViewTextBoxColumn";
+            this.ReadersbindingSource.DataMember = "Readers";
+            this.ReadersbindingSource.DataSource = this.bindingSource1;
+            // 
+            // readersTableAdapter
+            // 
+            this.readersTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -278,6 +268,7 @@
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(982, 453);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.add);
             this.Controls.Add(this.button1);
@@ -286,13 +277,17 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Literature.Pro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.librarydbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBHouseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditionsbindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReadersbindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,16 +313,16 @@
         private System.Windows.Forms.ToolStripMenuItem читачToolStripMenuItem;
         private System.Windows.Forms.BindingSource bindingSource1;
         private LibrarydbDataSet librarydbDataSet;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource booksBindingSource;
         private LibrarydbDataSetTableAdapters.booksTableAdapter booksTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idbookDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namebookDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn editionyearDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPublishingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource pBHouseBindingSource;
+        private LibrarydbDataSetTableAdapters.PBHouseTableAdapter pBHouseTableAdapter;
+        private System.Windows.Forms.BindingSource EditionsbindingSource;
+        private LibrarydbDataSetTableAdapters.EditionsTableAdapter editionsTableAdapter;
+        private System.Windows.Forms.BindingSource ReadersbindingSource;
+        private LibrarydbDataSetTableAdapters.ReadersTableAdapter readersTableAdapter;
     }
 }
 

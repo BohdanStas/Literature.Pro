@@ -111,10 +111,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Librarydb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Librarydb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Librarydb.mdf</DependentUpon>
     </Content>
   </ItemGroup>
